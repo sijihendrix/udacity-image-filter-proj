@@ -5,10 +5,11 @@
   "main": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rimraf www/ || true",
-    "build": "npm run clean && tsc && cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
-    "start": "node www/server.js",
-    "dev": "ts-node-dev --respawn --transpile-only ./src/server.ts"
+    "clean": "rimraf build/ || true",
+    "build": "tsc",
+    "start": "node build/index.js",
+    "dev": "ts-node-dev --respawn --transpile-only ./src/server.ts",
+    "dist": "sh ./scripts/dist.sh"
   },
   "repository": {
     "type": "git",
